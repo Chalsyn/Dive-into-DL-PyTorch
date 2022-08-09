@@ -30,7 +30,7 @@ def criterion(out_1,out_2,tau_plus,batch_size,beta, estimator):
         neg = torch.exp(torch.mm(out, out.t().contiguous()) / temperature) 
         old_neg = neg.clone()
         mask = get_negative_mask(batch_size).to(device)
-        neg = neg.masked_select(mask).view(2 * batch_size, -1)      ##把面具中true的位置筛选出来，按照1*m维的方式排列
+        neg = neg.masked_select(mask).view(2 * batch_size, -1)    
 
         # pos score
         pos = torch.exp(torch.sum(out_1 * out_2, dim=-1) / temperature)  
