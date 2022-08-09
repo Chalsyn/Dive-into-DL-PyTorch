@@ -1,3 +1,4 @@
+###just for try
 from PIL import Image
 from torchvision import transforms
 from torchvision.datasets import STL10
